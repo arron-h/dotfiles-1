@@ -1,8 +1,5 @@
 set nocompatible                    " Using vim not vi
 
-set autoindent
-set smartindent
-
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
@@ -10,17 +7,18 @@ set expandtab
 set wrap
 set textwidth=85
 
+set autoindent
+set smartindent
+
 set number                          " Show line numbers in the margin
 set ruler                           " Show line numbers in the toolbar
-
-syntax on
-
 set cursorline                      " Highlight the line where the cursor lies
 if has('gui_running')
-    set guioptions-=T                 " Hide the toolbar
-    set guifont=Consolas:h10:cANSI    " Set the font
+    set guioptions-=T               " Hide the toolbar
+    set guifont=Consolas:h10:cANSI  " Set the font
 endif
-colorscheme wombat                  " Set the colorscheme             
+colorscheme wombat                  " Set the colorscheme      
+syntax on       
 
 filetype on                         " Enable filetype detection
 filetype indent on                  " Enable filetype-specific indenting
@@ -36,13 +34,19 @@ set visualbell
 set helplang=en
 autocmd BufRead *.txt set spell     " Spellcheck from .txt files only
 
+au FileType javascript setlocal foldmethod=marker
+au FileType javascript setlocal foldmarker={,}
+
+au FileType c setlocal foldmethod=syntax
+
+au BufNewFile,BufRead *.css  setlocal foldmethod=marker
+au BufNewFile,BufRead *.css  setlocal foldmarker={,}
+
 filetype plugin on
 
-"" Allows the Backspace key to removing indenting, end of lines, and to remove text before the start of insert mode.
-set backspace=indent,eol,start
+set backspace=indent,eol,start      " Allows the Backspace key to removing indenting, end of lines, and to remove  before the start of insert mode.
 
-"" Allow VIM to set the title of the terminal or window.
-set title
+set title                           " Allow VIM to set the title of the terminal or window.
 
 "" wildmode and wildmenu configure your completion behavior. My settings
 "" complete the longest common string and throw up the menu.

@@ -1,0 +1,7 @@
+[user]
+    name =  Scott Walsh
+    email = scottkwalsh@gmail.com
+
+[core]
+    editor = vim
+    excludesfile = /Users/scottwalsh/.gitignore

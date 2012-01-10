@@ -1,0 +1,5 @@
+[ui]
+username = Scott Walsh <scottkwalsh@gmail.com>
+editor = vim
+commitsubrepos = False
+ignore = ~/.hgignore

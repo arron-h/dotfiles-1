@@ -5,6 +5,8 @@
 # Make the terminal use 256 colors instead of the default 8
 export TERM=xterm-256color
 
+export EDITOR=vim
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -82,7 +84,7 @@ esac
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable

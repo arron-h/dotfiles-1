@@ -45,6 +45,9 @@ set list
 set listchars=tab:▸\ ,eol:¬
 set showbreak=↪
 
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 filetype on                         " Enable filetype detection
 filetype indent on                  " Enable filetype-specific indenting
 filetype plugin on                  " Enable filetype-specific plugins

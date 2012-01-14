@@ -14,7 +14,7 @@ syntax on
 set background=dark
 if has('gui_running')
     set guioptions-=T               " Hide the toolbar
-    set guifont=Consolas:h10:cANSI  " Set the font
+    "" set guifont=Consolas:h10:cANSI  " Set the font
     colorscheme wombat              " Set the colorscheme
 else
     colorscheme wombat256           " Set the colorscheme

@@ -1,6 +1,4 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
 
 # Make the terminal use 256 colors instead of the default 8
 export TERM=xterm-256color
@@ -82,6 +80,53 @@ xterm*|rxvt*)
     ;;
 esac
 
+if [ "$UID" == 0 ] ; then
+    COLOR_USERNAME='\e[0;31m'
+else
+    COLOR_USERNAME='\e[0;32m'
+fi
+
+COLOR_DECORATION1='\e[0;31m'
+COLOR_DECORATION2='\e[0;35m'
+
+if [ -n "$SSH_CONNECTION" ] ; then
+    # We're logged in remotely
+    COLOR_HOSTNAME='\e[1;33m'
+else
+    COLOR_HOSTNAME='\e[1;34m'
+fi
+
+COLOR_DIRECTORY='\e[1;32m'
+NC='\e[0m'              # No Color
+
+#Loading this is slooooow
+#if [ -f /etc/bash_completion ]; then
+#    #. /etc/bash_completion
+#fi
+TEXT_FRAME1='['
+TEXT_USERNAME='\u'
+TEXT_AT=' ❤ '
+TEXT_HOSTNAME='\h'
+TEXT_IN=' in '
+TEXT_WORKING_DIRECTORY='\w'
+TEXT_FRAME2=']'
+
+if [ $TEXT_USERNAME == "root" ]; then
+	COLOR_USERNAME='\e[0;31m'
+fi
+
+PATH=$PATH:$HOME/scripts
+PS1="╔\
+${COLOR_DECORATION2}${TEXT_FRAME1}\
+${COLOR_USERNAME}${TEXT_USERNAME}\
+${COLOR_DECORATION1}${TEXT_AT}\
+${COLOR_HOSTNAME}${TEXT_HOSTNAME}\
+${COLOR_DECORATION2}${TEXT_FRAME2}\
+${NC}${TEXT_IN}\
+ ${COLOR_DIRECTORY}${TEXT_WORKING_DIRECTORY}\
+${NC}\n╚═> "
+PS2="☯═> "
+
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
@@ -90,6 +135,5 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
+#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#    . /etc/bash_completion#fi

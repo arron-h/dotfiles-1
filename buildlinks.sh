@@ -4,10 +4,11 @@
 
 cd
 ln -s .dotfiles/.bash_aliases .bash_aliases
-ln -s .dotfiles/.bash_rc .bash_rc
+ln -s .dotfiles/.bashrc .bashrc
 ln -s .dotfiles/.gitconfig .gitconfig
 ln -s .dotfiles/.hgignore .hgignore
 ln -s .dotfiles/.hgrc .hgrc
+ln -s .dotfiles/.screenrc .screenrc
 ln -s .dotfiles/vim/.vimrc .vimrc
 
 cp .dotfiles/vim/colors/wombat.vim .vim/colors/wombat.vim

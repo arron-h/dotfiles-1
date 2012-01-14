@@ -12,3 +12,6 @@ alias cd..="cd .."
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+
+# chatty version of rm with confirm
+alias rm='rm -iv'

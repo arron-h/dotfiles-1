@@ -13,9 +13,15 @@ set cursorline                      " Highlight the line where the cursor lies
 syntax on
 set background=dark
 if has('gui_running')
-    set guioptions-=T               " Hide the toolbar
-    set guifont=Consolas\ Terminus:h10        " Set the font
     colorscheme wombat              " Set the colorscheme
+    set guioptions-=T               " Hide the toolbar
+    if has("gui_gtk2")
+        set guifont=Consolas\ 11
+    elseif has("gui_macvim")
+        set guifont=Consolas:h12
+    elseif has("gui_win32")
+        set guifont=Consolas:h11
+    end
 else
     colorscheme wombat256           " Set the colorscheme
 endif

@@ -99,32 +99,25 @@ fi
 COLOR_DIRECTORY='\e[1;32m'
 NC='\e[0m'              # No Color
 
-#Loading this is slooooow
-#if [ -f /etc/bash_completion ]; then
-#    #. /etc/bash_completion
-#fi
-TEXT_FRAME1='['
 TEXT_USERNAME='\u'
-TEXT_AT=' ❤ '
+TEXT_AT=' at '
 TEXT_HOSTNAME='\h'
 TEXT_IN=' in '
 TEXT_WORKING_DIRECTORY='\w'
-TEXT_FRAME2=']'
 
 if [ $TEXT_USERNAME == "root" ]; then
 	COLOR_USERNAME='\e[0;31m'
 fi
 
 PATH=$PATH:$HOME/scripts
-PS1="╔\
-${COLOR_DECORATION2}${TEXT_FRAME1}\
+PS1="${COLOR_DECORATION1}\
 ${COLOR_USERNAME}${TEXT_USERNAME}\
-${COLOR_DECORATION1}${TEXT_AT}\
+${NC}${TEXT_AT}\
 ${COLOR_HOSTNAME}${TEXT_HOSTNAME}\
-${COLOR_DECORATION2}${TEXT_FRAME2}\
+${COLOR_DECORATION2}\
 ${NC}${TEXT_IN}\
  ${COLOR_DIRECTORY}${TEXT_WORKING_DIRECTORY}\
-${NC}\n╚═> "
+${NC}\n$ "
 PS2="☯═> "
 
 # Alias definitions.

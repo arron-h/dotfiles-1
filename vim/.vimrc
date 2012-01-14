@@ -14,7 +14,7 @@ syntax on
 set background=dark
 if has('gui_running')
     set guioptions-=T               " Hide the toolbar
-    "" set guifont=Consolas:h10:cANSI  " Set the font
+    set guifont=Consolas\ Terminus:h10        " Set the font
     colorscheme wombat              " Set the colorscheme
 else
     colorscheme wombat256           " Set the colorscheme
@@ -27,6 +27,7 @@ set expandtab
 set wrap
 set textwidth=80
 set scrolloff=3                     " At least 3 lines above/below.
+set colorcolumn=+1
 
 set autoindent
 set smartindent
@@ -43,6 +44,7 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set showbreak=↪
 
 au FocusLost * :wa                  " Save when losing focus
+au VimResized * exe "normal! \<c-w>="
 
 "" wildmode and wildmenu configure your completion behavior. My settings
 "" complete the longest common string and throw up the menu.
@@ -56,6 +58,10 @@ set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.spl                            " compiled spelling word lists
 set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX bullshit
+
+" Make Vim able to edit crontab files again.
+set backupskip=/tmp*,/private/tmp/*"
+set noswapfile
 
 filetype on                         " Enable filetype detection
 filetype indent on                  " Enable filetype-specific indenting

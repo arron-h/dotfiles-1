@@ -11,4 +11,4 @@ bufferfile "$HOME/.screen/exchange"
 hardcopydir "$HOME/.screen/hardcopy"
 sorendition dY
 hardstatus alwayslastline
-hardstatus string '%{= dW}%-Lw%{= dY}%50> %n*%f %t%{= dW}%+Lw%< %{= dW}%-=%D %m/%d/%y %C %A %1`%{-}'
+hardstatus string '%{= dW}%-Lw%{= dY}%50> %n*%f %t%{= dW}%+Lw%< %{= dW}%-=%D %d/%m/%y %C %A %1`%{-}'

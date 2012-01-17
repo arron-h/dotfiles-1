@@ -10,7 +10,7 @@ set number                          " Show line numbers in the margin
 set ruler                           " Show line numbers in the toolbar
 set cursorline                      " Highlight the line where the cursor lies
 
-syntax on
+" TODO: Move this GUI stuff into a .gvimrc file
 set background=dark
 if has('gui_running')
     colorscheme wombat              " Set the colorscheme
@@ -24,6 +24,18 @@ if has('gui_running')
     end
 else
     colorscheme wombat256           " Set the colorscheme
+endif
+" Switch syntax highlighting on, when the terminal has colors
+" Also switch on highlighting the last used search pattern.
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+" -----------------------------------------------
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+if has('mouse')
+  set mouse=a
 endif
 
 set shiftwidth=4

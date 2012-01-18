@@ -5,6 +5,13 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 # Make the terminal use 256 colors instead of the default 8
 export TERM=xterm-256color
 
@@ -116,23 +123,51 @@ if [ $TEXT_USERNAME == "root" ] ; then
 fi
 
 if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] ; then
-    # We're logged in remotely
     COLOR_HOSTNAME=$BY
 else
     COLOR_HOSTNAME=$BC
 fi
 
+# Git completion and branch info
+. ~/.dotfiles/bash/lib/git-completion.bash
+
+function __git_prompt {
+  GIT_PS1_SHOWDIRTYSTATE=1
+  __git_ps1 " on %s" | sed 's/ \([+*]\{1,\}\)$/\1/'
+}
+
+# Only show username@server over SSH.
+function __name_and_server {
+  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+    echo "`hostname -s`"
+  else
+    echo "`hostname -s`"
+  fi
+}
+
 PATH=$PATH:$HOME/scripts
-PS1="${COLOR_USERNAME}${TEXT_USERNAME}\
-${NC}${TEXT_AT}\
-${COLOR_HOSTNAME}${TEXT_HOSTNAME}\
-${NC}${TEXT_IN}\
-${COLOR_WORKING_DIRECTORY}${TEXT_WORKING_DIRECTORY}\
-${NC}\n$ "
+
+# http://henrik.nyh.se/2008/12/git-dirty-prompt
+# http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
+#   username@Machine ~/dev/dir[master]$   # clean working directory
+#   username@Machine ~/dev/dir[master*]$  # dirty working directory
+
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+
+PS1="\t $Y\u$RESET at $BG\$(__name_and_server)$RESET in $BY\w$RESET\$(__git_prompt)$RESET\n$ "
+#PS1='\u at \h in \w$(__git_prompt) \n$ '
+#PS1="${COLOR_USERNAME}${TEXT_USERNAME}\
+#${NC}${TEXT_AT}\
+#${COLOR_HOSTNAME}${TEXT_HOSTNAME}\
+#${NC}${TEXT_IN}\
+#${COLOR_WORKING_DIRECTORY}${TEXT_WORKING_DIRECTORY}\
+#$(__git_prompt)\
+#${NC}\n$ "
 PS2="#═> "
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-#    . /etc/bash_completion#fi

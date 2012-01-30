@@ -1,7 +1,7 @@
 Installation
 ------------
 
-    git clone git://github.com/nelstrom/dotfiles.git
+    git clone git://github.com/scottwalsh/dotfiles.git
     
 Create symlinks:
 

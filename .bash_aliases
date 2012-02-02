@@ -18,9 +18,6 @@ alias ....="cd ../../.."
 alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
-# chatty version of rm with confirm
-alias rm='rm -iv'
-
 alias vi="vim"
 alias exit="clear; exit"
 alias eth="sudo dhcpcd eth0"

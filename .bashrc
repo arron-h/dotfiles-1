@@ -103,30 +103,12 @@ esac
   # reset
   RESET="\[\033[0;37m\]"
   NC='\e[0m'                  # No Color
-
-COLOR_WORKING_DIRECTORY=$BG
-
+  
 TEXT_USERNAME='\u'
 TEXT_AT=' at '
 TEXT_HOSTNAME='\h'
 TEXT_IN=' in '
 TEXT_WORKING_DIRECTORY='\w'
-
-if [ "$UID" == 0 ] ; then
-    COLOR_USERNAME=$BR
-else
-    COLOR_USERNAME=$BY
-fi
-
-if [ $TEXT_USERNAME == "root" ] ; then
-	COLOR_USERNAME=$BR
-fi
-
-if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] ; then
-    COLOR_HOSTNAME=$BY
-else
-    COLOR_HOSTNAME=$BC
-fi
 
 # Git completion and branch info
 . ~/.dotfiles/bash/lib/git-completion.bash
@@ -138,29 +120,48 @@ function __git_prompt {
 
 # Only show username@server over SSH.
 function __name_and_server {
-  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] ; then
     echo "`hostname -s`"
+    COLOR_HOSTNAME=$BC
   else
     echo "`hostname -s`"
+    COLOR_HOSTNAME=$BG
   fi
 }
 
+  if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ] ; then
+    COLOR_HOSTNAME=$BC
+  else
+    COLOR_HOSTNAME=$BG
+  fi
+
+if [ "$UID" == 0 ] || [ $TEXT_USERNAME == "root" ] ; then
+    COLOR_USERNAME=$BR
+else
+    COLOR_USERNAME=$Y
+fi
+
+COLOR_WORKING_DIRECTORY=$BY
+
 PATH=$PATH:$HOME/scripts
+
+PS1="\t $COLOR_USERNAME$TEXT_USERNAME$RESET at $COLOR_HOSTNAME\$(__name_and_server)$RESET in $COLOR_WORKING_DIRECTORY\w$RESET\$(__git_prompt)$RESET\n$ "
+
+PS2="#═> "
 
 # http://henrik.nyh.se/2008/12/git-dirty-prompt
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
 #   username@Machine ~/dev/dir[master]$   # clean working directory
 #   username@Machine ~/dev/dir[master*]$  # dirty working directory
 
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
-}
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
-}
-export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+#function parse_git_dirty {
+#  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && #echo "*"
+#}
+#function parse_git_branch {
+#  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+#}
+#export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
-PS1="\t $Y\u$RESET at $BG\$(__name_and_server)$RESET in $BY\w$RESET\$(__git_prompt)$RESET\n$ "
 #PS1='\u at \h in \w$(__git_prompt) \n$ '
 #PS1="${COLOR_USERNAME}${TEXT_USERNAME}\
 #${NC}${TEXT_AT}\
@@ -169,5 +170,3 @@ PS1="\t $Y\u$RESET at $BG\$(__name_and_server)$RESET in $BY\w$RESET\$(__git_prom
 #${COLOR_WORKING_DIRECTORY}${TEXT_WORKING_DIRECTORY}\
 #$(__git_prompt)\
 #${NC}\n$ "
-PS2="#═> "
-

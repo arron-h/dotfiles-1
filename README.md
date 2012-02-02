@@ -1,7 +1,9 @@
 Installation
-------------
+============
 
-    git clone git://github.com/nelstrom/dotfiles.git
+Fetch:
+
+    git clone git://github.com/scottwalsh/dotfiles.git
     
 Create symlinks:
 
@@ -14,9 +16,15 @@ Create symlinks:
     ln -s ~/.dotfiles/.screenrc ~/.screenrc
     ln -s ~/.dotfiles/.vimrc ~/.vimrc
     ln -s ~/.dotfiles/vim ~/.vim
+    
+Switch to the '~/.vim' directory, and fetch submodules:
+
+    cd ~/.vim
+    git submodule init
+    git submodule update
 
 VIM
-===
+---
 
 Add a plugin
 

@@ -11,6 +11,8 @@ set title                           " Allow VIM to set the title of the terminal
 set number                          " Show line numbers in the margin
 set ruler                           " Show line numbers in the toolbar
 set cursorline                      " Highlight the line where the cursor lies
+" set viewoptions=folds,options,cursor,unix,slash " Better unix / windows compatibility
+set history=1000                    " Store more history (default is 20)
 
 " TODO: Move this GUI stuff into a .gvimrc file
 set background=dark
@@ -69,6 +71,12 @@ set backspace=indent,eol,start
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set showbreak=↪
+
+" Show trailing whitespace when not in Insert mode
+augroup trailing
+  au InsertEnter * :set listchars-=trail:⌴
+  au InsertLeave * :set listchars+=trail:⌴
+augroup END
 
 au FocusLost * :wa                  " Save when losing focus
 au VimResized * exe "normal! \<c-w>="

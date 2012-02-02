@@ -2,7 +2,7 @@ call pathogen#runtime_append_all_bundles()
 
 set nocompatible                    " Using vim not vi
 
-set term=xterm-256color
+set term=$TERM
 set shell=/bin/bash
 
 set title                           " Allow VIM to set the title of the terminal or window.

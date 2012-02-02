@@ -31,7 +31,14 @@ if &t_Co > 2 || has("gui_running")
   syntax on
   set hlsearch
 endif
+
 " -----------------------------------------------
+
+" Improve Windows compatability; also use '.vim' instead of 'vimfiles'; 
+" makes synchronization across systems easier. 
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')

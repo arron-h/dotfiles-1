@@ -1,8 +1,11 @@
 Installation
 ============
 
+<<<<<<< HEAD
 Fetch:
 
+=======
+>>>>>>> e555602a3620c45c90bac498cd659d783012ede6
     git clone git://github.com/scottwalsh/dotfiles.git
     
 Create symlinks:

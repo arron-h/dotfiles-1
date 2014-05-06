@@ -23,24 +23,24 @@ fi
 export TERM=xterm-256color              # Make the terminal use 256 colors instead of the default 8
 export EDITOR=vim
 
-PATH=$PATH:$HOME/scripts
+export CLICOLOR=1
 
 # History
-HISTCONTROL=ignorespace      # don't put duplicate lines in the history.
+HISTCONTROL=ignorespace          # don't put duplicate lines in the history.
 HISTSIZE=10000
 HISTFILESIZE=2000
-PROMPT_COMMAND='history -a'             # share history across all terminals
+PROMPT_COMMAND='history -a'      # share history across all terminals
 
 #COLORS
   # regular colors
-  BLACK="\[\033[0;30m\]"    # black
-  RED="\[\033[0;31m\]"      # red
-  GREEN="\[\033[0;32m\]"    # green
-  YELLOW="\[\033[0;33m\]"   # yellow
-  BLUE="\[\033[0;34m\]"     # blue
-  MAGENTA="\[\033[0;35m\]"  # magenta
-  CYAN="\[\033[0;36m\]"     # cyan
-  WHITE="\[\033[0;37m\]"    # white
+  BLACK="\[\033[0;30m\]"
+  RED="\[\033[0;31m\]"
+  GREEN="\[\033[0;32m\]"
+  YELLOW="\[\033[0;33m\]"
+  BLUE="\[\033[0;34m\]"
+  MAGENTA="\[\033[0;35m\]"
+  CYAN="\[\033[0;36m\]"
+  WHITE="\[\033[0;37m\]"
 
   # emphasized (bolded) colors
   BBLACK="\[\033[1;30m\]"

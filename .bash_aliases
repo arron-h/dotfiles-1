@@ -10,6 +10,7 @@ alias vi="vim"
 alias exit="clear; exit"
 
 alias reboot="shutdown -r now"
+alias whatismyip='curl ifconfig.me'
 
 # Follow copied and moved files to destination directory
 cpf() { cp "$@" && goto "$_"; }

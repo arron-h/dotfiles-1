@@ -14,7 +14,7 @@ export TERM=xterm-256color    # Make the terminal use 256 colors instead of the 
 export EDITOR=vim
 
 # History
-HISTCONTROL=ignorespace       # don't put duplicate lines in the history.
+HISTCONTROL=ignorespace       # don't put empty lines in the history.
 HISTSIZE=10000
 HISTFILESIZE=2000
 PROMPT_COMMAND='history -a'   # share history across all terminals

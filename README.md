@@ -17,10 +17,6 @@ Create symlinks:
     ln -s ~/.dotfiles/.vimrc ~/.vimrc
     ln -s ~/.dotfiles/vim ~/.vim
     
-Install terminal configuration:
-
-    gconftool-2 --load ~/.dotfiles/gnome-terminal-conf.xml
-    
 Switch to the '~/.vim' directory, and fetch submodules:
 
     cd ~/.vim

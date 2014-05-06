@@ -20,12 +20,8 @@ alias ......='cd ../../../../..'
 
 alias vi="vim"
 alias exit="clear; exit"
-alias eth="sudo dhcpcd eth0"
 
-alias reboot="sudo shutdown -r now"
-alias shut="sudo shutdown -h now"
-
-alias fileserver="ssh fileserver"
+alias reboot="shutdown -r now"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -42,3 +38,45 @@ fi
 # Add an "alert" alias for long running commands. Use like so:
 # sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Show frequent commands
+alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+
+# Directory size
+dirsize ()
+{
+  du -shx * .[a-zA-Z0-9_]* 2> /dev/null | \
+  egrep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
+  egrep '^ *[0-9.]*M' /tmp/list
+  egrep '^ *[0-9.]*G' /tmp/list
+  rm /tmp/list
+}
+
+# Extract Files
+extract () {
+  if [ -f $1 ] ; then
+      case $1 in
+          *.tar.bz2)   tar xvjf $1    ;;
+          *.tar.gz)    tar xvzf $1    ;;
+          *.tar.xz)    tar xvJf $1    ;;
+          *.bz2)       bunzip2 $1     ;;
+          *.rar)       unrar x $1     ;;
+          *.gz)        gunzip $1      ;;
+          *.tar)       tar xvf $1     ;;
+          *.tbz2)      tar xvjf $1    ;;
+          *.tgz)       tar xvzf $1    ;;
+          *.zip)       unzip $1       ;;
+          *.Z)         uncompress $1  ;;
+          *.7z)        7z x $1        ;;
+          *.xz)        unxz $1        ;;
+          *.exe)       cabextract $1  ;;
+          *)           echo ${1#*.}": unrecognized format" ;;
+      esac
+  else
+      echo "\`$1' is not a valid file"
+  fi
+}
+
+# Follow copied and moved files to destination directory
+cpf() { cp "$@" && goto "$_"; }
+mvf() { mv "$@" && goto "$_"; }

@@ -7,15 +7,15 @@ Fetch:
     
 Create symlinks:
 
-    ln -s ~/.dotfiles/.bash_aliases ~/.bash_aliases
-    ln -s ~/.dotfiles/.bashrc ~/.bashrc
-    ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-    ln -s ~/.dotfiles/.gitignore ~/.gitignore
-    ln -s ~/.dotfiles/.hgignore ~/.hgignore
-    ln -s ~/.dotfiles/.hgrc ~/.hgrc
-    ln -s ~/.dotfiles/.screenrc ~/.screenrc
-    ln -s ~/.dotfiles/.vimrc ~/.vimrc
-    ln -s ~/.dotfiles/vim ~/.vim
+    ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
+    ln -s ~/dotfiles/.bashrc ~/.bashrc
+    ln -s ~/dotfiles/.gitconfig ~/.gitconfig
+    ln -s ~/dotfiles/.gitignore ~/.gitignore
+    ln -s ~/dotfiles/.hgignore ~/.hgignore
+    ln -s ~/dotfiles/.hgrc ~/.hgrc
+    ln -s ~/dotfiles/.screenrc ~/.screenrc
+    ln -s ~/dotfiles/.vimrc ~/.vimrc
+    ln -s ~/dotfiles/vim ~/.vim
     
 Switch to the '~/.vim' directory, and fetch submodules:
 

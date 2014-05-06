@@ -3,6 +3,7 @@ Installation
 
 Fetch:
 
+    cd ~
     git clone git://github.com/scottwalsh/dotfiles.git
     
 Create symlinks:

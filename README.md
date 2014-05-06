@@ -1,6 +1,12 @@
 Installation
 ============
 
+    brew install bash
+Add /usr/local/bin/bash to /etc/shells
+    chsh -s /usr/local/bin/bash.
+
+brew install bash-completion
+
 Fetch:
 
     cd ~

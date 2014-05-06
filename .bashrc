@@ -1,41 +1,41 @@
 # ~/.bashrc
 
-shopt -s autocd               # cd by naming directory
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+[ "${BASH_VERSINFO[0]}" -ge 4 ] && shopt -s autocd # cd by naming directory (in bash 4)
 shopt -s histappend           # append to the history file, don't overwrite it
 shopt -s checkwinsize         # update the value of LINES and COLUMNS after each command
 shopt -s expand_aliases       # expand aliases
 shopt -s hostcomplete         # attempt hostname expansion when @ is at the beginning of a word
 shopt -s dotglob              # include dotfiles in pathname expansion
 
-# If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+export TERM=xterm-256color    # Make the terminal use 256 colors instead of the default 8
+export EDITOR=vim
+
+# History
+HISTCONTROL=ignorespace       # don't put duplicate lines in the history.
+HISTSIZE=10000
+HISTFILESIZE=2000
+PROMPT_COMMAND='history -a'   # share history across all terminals
 
 # Alias definitions.
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
-# enable programmable completion features
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# installed by homebrew
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-export TERM=xterm-256color      # Make the terminal use 256 colors instead of the default 8
-export EDITOR=vim
-
+#COLORS
 export CLICOLOR=1
 
-# History
-HISTCONTROL=ignorespace         # don't put duplicate lines in the history.
-HISTSIZE=10000
-HISTFILESIZE=2000
-PROMPT_COMMAND='history -a'     # share history across all terminals
-
-#COLORS
   # regular colors
   BLACK="\[\033[0;30m\]"
   RED="\[\033[0;31m\]"
@@ -89,8 +89,8 @@ force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48 (ISO/IEC-6429).
-  	    color_prompt=yes
+	    # We have color support; assume it's compliant with Ecma-48 (ISO/IEC-6429).
+  	  color_prompt=yes
     else
 	    color_prompt=
     fi

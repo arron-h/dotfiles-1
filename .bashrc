@@ -20,16 +20,20 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export TERM=xterm-256color              # Make the terminal use 256 colors instead of the default 8
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
+export TERM=xterm-256color      # Make the terminal use 256 colors instead of the default 8
 export EDITOR=vim
 
 export CLICOLOR=1
 
 # History
-HISTCONTROL=ignorespace          # don't put duplicate lines in the history.
+HISTCONTROL=ignorespace         # don't put duplicate lines in the history.
 HISTSIZE=10000
 HISTFILESIZE=2000
-PROMPT_COMMAND='history -a'      # share history across all terminals
+PROMPT_COMMAND='history -a'     # share history across all terminals
 
 #COLORS
   # regular colors
@@ -75,9 +79,6 @@ fi
 
 COLOR_WORKING_DIRECTORY=$BYELLOW
 COLOR_BRANCH=$BMAGENTA
-
-# Git completion and branch info
-. ~/.dotfiles/bash/lib/git-completion.bash
 
 function __git_prompt {
   GIT_PS1_SHOWDIRTYSTATE=1

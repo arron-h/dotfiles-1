@@ -1,1 +1,1 @@
-export PATH="$(echo ~)/bin:"$PATH
+export PATH="$(echo ~)/bin:"$PATH # export bin in home directoy

@@ -2,7 +2,9 @@ Installation
 ============
 
     brew install bash
+    
 Add /usr/local/bin/bash to /etc/shells
+
     chsh -s /usr/local/bin/bash.
 
 brew install bash-completion
@@ -14,17 +16,19 @@ Fetch:
     
 Create symlinks:
 
+TODO: Check files don't already exist
+
     ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
     ln -s ~/dotfiles/.bashrc ~/.bashrc
     ln -s ~/dotfiles/.bash_profile ~/.bash_profile
     ln -s ~/dotfiles/.profile ~/.profile
     ln -s ~/dotfiles/.gitconfig ~/.gitconfig
     ln -s ~/dotfiles/.gitignore ~/.gitignore
-    ln -s ~/dotfiles/.hgignore ~/.hgignore
-    ln -s ~/dotfiles/.hgrc ~/.hgrc
     ln -s ~/dotfiles/.screenrc ~/.screenrc
     ln -s ~/dotfiles/.vimrc ~/.vimrc
     ln -s ~/dotfiles/vim ~/.vim
+    
+TODO: Create install.sh
     
 Switch to the '~/.vim' directory, and fetch submodules:
 

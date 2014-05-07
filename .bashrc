@@ -85,6 +85,8 @@ function __git_prompt {
   __git_ps1 "%s" | sed 's/ \([+*]\{1,\}\)$/\1/' | sed 's/^/ on /g'
 }
 
+
+# TODO: remove 
 force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then

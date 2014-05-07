@@ -12,6 +12,8 @@ alias exit="clear; exit"
 alias reboot="shutdown -r now"
 alias whatismyip='curl ifconfig.me'
 
+alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
 # Follow copied and moved files to destination directory
 cpf() { cp "$@" && goto "$_"; }
 mvf() { mv "$@" && goto "$_"; }

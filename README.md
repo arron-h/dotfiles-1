@@ -1,6 +1,9 @@
 Installation
 ============
 
+TODO: Create install.sh
+TODO: Create Brewfile
+
     brew install bash
     
 Add /usr/local/bin/bash to /etc/shells
@@ -28,28 +31,9 @@ TODO: Check files don't already exist
     ln -s ~/dotfiles/.vimrc ~/.vimrc
     ln -s ~/dotfiles/vim ~/.vim
     
-TODO: Create install.sh
-    
-Switch to the '~/.vim' directory, and fetch submodules:
-
-    cd ~/.vim
-    git submodule init
-    git submodule update
-
 VIM
 ---
 
-Add a plugin
-
-    git submodule add http://github.com/tpope/vim-fugitive.git vim/bundle/fugitive
-    git add .
-    git commit -m 'Install plugin'
-    
-Update a plugin
-
-    cd ~/.vim/bundle/fugitive
-    git pull origin master
-    
-Update all plugins
-
-    git submodule foreach git pull origin master
+    echo "install vundle"
+    mkdir -p ~/.vim/bundle/vundle
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle

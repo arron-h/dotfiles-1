@@ -1,4 +1,4 @@
-call pathogen#runtime_append_all_bundles()
+source ~/.vim/bundles.vim           " load Vundle bundles
 
 set nocompatible                    " Using vim not vi
 

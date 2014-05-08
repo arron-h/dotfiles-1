@@ -4,6 +4,7 @@ echo "go"
 
 echo "delete old dotfiles"
 
+#todo: Check files don't already exist
 rm ~/.bashrc
 rm ~/.bash_profile
 rm ~/.profile

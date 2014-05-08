@@ -36,6 +36,6 @@ mkdir -p ~/.vim/bundle/vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 echo "installing vundle packages"
-vim -u ~/bundles.vim +BundleInstall +qall
+vim -u $PWD/bundles.vim +BundleInstall +qall
 
 echo "job's a good un..."

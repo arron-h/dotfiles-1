@@ -9,6 +9,7 @@ alias ......='cd ../../../../..'
 alias vi="vim"
 alias exit="clear; exit"
 
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update --system; sudo gem update'
 alias reboot="shutdown -r now"
 alias whatismyip='curl ifconfig.me'
 

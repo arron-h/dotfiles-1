@@ -1,4 +1,4 @@
-source ~/.vim/bundles.vim           " load Vundle bundles
+source ~/.vim/bundles.vim           " load Vundle plugins
 
 set nocompatible                    " Using vim not vi
 
@@ -27,7 +27,7 @@ if has('gui_running')
         set guifont=Consolas:h11
     end
 else
-    colorscheme wombat256           " Set the colorscheme
+    colorscheme wombat256mod           " Set the colorscheme
 endif
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.

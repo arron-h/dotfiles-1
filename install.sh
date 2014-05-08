@@ -18,6 +18,10 @@ rm ~/.screenrc
 rm ~/.vimrc
 rm -rf ~/.vim
 
+echo "install vundle"
+mkdir -p ~/.vim/bundle/vundle
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
 echo "linking dotfiles from current location"
 ln -s $PWD/.bashrc ~/.bashrc
 ln -s $PWD/.bash_profile ~/.bash_profile
@@ -30,12 +34,9 @@ ln -s $PWD/.gitignore ~/.gitignore
 ln -s $PWD/.screenrc ~/.screenrc
 
 ln -s $PWD/.vimrc ~/.vimrc
-
-echo "install vundle"
-mkdir -p ~/.vim/bundle/vundle
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+ln -s $PWD/bundles.vim ~/.vim/bundles.vim
 
 echo "installing vundle packages"
-vim -u $PWD/bundles.vim +BundleInstall +qall
+vim -u $PWD/bundles.vim +PluginInstall +qall
 
 echo "job's a good un..."

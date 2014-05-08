@@ -14,3 +14,6 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'vim-scripts/TaskList.vim'
 Bundle 'bling/vim-airline'
+
+Bundle 'vim-scripts/wombat256.vim'
+"Bundle 'ShawnHuang/vim-airline-wombat256'

@@ -2,7 +2,7 @@ Installation
 ============
 
     git clone git://github.com/scottwalsh/dotfiles.git
-    install.sh
+    ./install.sh
     ./.osx
     
 Want to update to bash 4?

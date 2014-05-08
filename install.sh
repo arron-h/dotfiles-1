@@ -30,14 +30,12 @@ ln -s $PWD/.gitignore ~/.gitignore
 ln -s $PWD/.screenrc ~/.screenrc
 
 ln -s $PWD/.vimrc ~/.vimrc
-ln -s $PWD/vim ~/.vim
 
-# will this work, won't this be added the my git repo?
 echo "install vundle"
 mkdir -p ~/.vim/bundle/vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
 echo "installing vundle packages"
-vim -u ~/.vim/bundles.vim +BundleInstall +qall
+vim -u ~/bundles.vim +BundleInstall +qall
 
 echo "job's a good un..."

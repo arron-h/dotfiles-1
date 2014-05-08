@@ -11,7 +11,7 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-commentary'
 Bundle 'othree/html5.vim'
 Bundle 'gregsexton/MatchTag'
-Bundle 'kevinw/pyflakes-vim'
+Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/TaskList.vim'
 Bundle 'bling/vim-airline'
 

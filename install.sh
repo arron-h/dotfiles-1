@@ -37,6 +37,6 @@ ln -s $PWD/.vimrc ~/.vimrc
 ln -s $PWD/bundles.vim ~/.vim/bundles.vim
 
 echo "installing vundle packages"
-vim -u $PWD/bundles.vim +PluginInstall +qall
+vim -u ~/.vim/bundles.vim +PluginInstall +qall
 
 echo "job's a good un..."

@@ -26,19 +26,7 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set showbreak=↪
 
 set background=dark
-if has('gui_running')
-    colorscheme wombat              " Set the colorscheme
-    set guioptions-=T               " Hide the toolbar
-    if has("gui_gtk2")
-        set guifont=Consolas\ 11
-    elseif has("gui_macvim")
-        set guifont=Consolas:h12
-    elseif has("gui_win32")
-        set guifont=Consolas:h11
-    end
-else
-    colorscheme wombat256mod        " Set the colorscheme
-endif
+colorscheme wombat256mod        " Set the colorscheme
 
 " Improve Windows compatability; also use '.vim' instead of 'vimfiles'; 
 " makes synchronization across systems easier. 

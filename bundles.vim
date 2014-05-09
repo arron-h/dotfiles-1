@@ -18,4 +18,4 @@ Plugin 'bling/vim-airline'
 
 Plugin 'wombat'
 Plugin 'vim-scripts/wombat256.vim'
-"Plugin 'ShawnHuang/vim-airline-wombat256'
+Plugin 'ShawnHuang/vim-airline-wombat256'

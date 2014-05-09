@@ -2,10 +2,20 @@ Installation
 ============
 
     git clone git://github.com/scottwalsh/dotfiles.git
-    ./install.sh
+
+Install osx specific things:
+
+    brew bundle Brewfile
+    brew bundle Caskfile
     ./.osx
-    
-Want to update to bash 4?
+
+Install dotfiles:
+
+    ./install.sh
+
+
+
+Want to update to bash 4 on osx?
 
     brew install bash
     echo "/usr/local/bin/bash" >> /etc/shells

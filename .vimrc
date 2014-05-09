@@ -13,6 +13,7 @@ set ruler                           " Show line numbers in the toolbar
 set cursorline                      " Highlight the line where the cursor lies
 " set viewoptions=folds,options,cursor,unix,slash " Better unix / windows compatibility
 set history=1000                    " Store more history (default is 20)
+set laststatus=2                    " Always show status line (turn vim-airline on straight away)
 
 " TODO: Move this GUI stuff into a .gvimrc file
 set background=dark

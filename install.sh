@@ -3,8 +3,6 @@
 echo "go"
 
 echo "delete old dotfiles"
-
-#todo: Check files don't already exist
 rm ~/.bashrc
 rm ~/.bash_profile
 rm ~/.profile
@@ -16,6 +14,7 @@ rm ~/.gitignore
 rm ~/.screenrc
 
 rm ~/.vimrc
+rm ~/.gvimrc
 rm -rf ~/.vim
 
 echo "install vundle"
@@ -34,6 +33,7 @@ ln -s $PWD/.gitignore ~/.gitignore
 ln -s $PWD/.screenrc ~/.screenrc
 
 ln -s $PWD/.vimrc ~/.vimrc
+ln -s $PWD/.gvimrc ~/.gvimrc
 ln -s $PWD/bundles.vim ~/.vim/bundles.vim
 
 echo "installing vundle packages"
